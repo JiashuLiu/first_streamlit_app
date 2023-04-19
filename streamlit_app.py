@@ -26,7 +26,7 @@ streamlit.dataframe(my_fruit_list)
 
 
 #create the repeatable code block 
-def get_fruiyvice_Data(this_fruit_choice):
+def get_fruityvice_Data(this_fruit_choice):
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
     return fruityvice_normalized
@@ -37,7 +37,7 @@ try:
   if not fruit_choice:
     streamlit.error("Please select a fruit to get information.")
   else:
-    back_from_function = get_fruiyvice_Data(fruit_choice)
+    back_from_function = get_fruityvice_Data(fruit_choice)
     streamlit.dataframe(fruityvice_normalized)
 
 except URLError as e:
